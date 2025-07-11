@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { MagneticButton } from "./magnetic-button"
+import Image from "next/image"
 
 export function SophisticatedNav() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -46,12 +47,12 @@ export function SophisticatedNav() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <motion.div
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-3"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <div className="w-8 h-8 bg-gradient-to-br from-brand-accent to-brand-accent-light rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">V</span>
+            <div className="w-8 h-8 relative">
+              <Image src="/volv-logo.png" alt="Volv Logo" width={32} height={32} className="object-contain" priority />
             </div>
             <span className="text-xl font-bold text-surface-dark">Volv</span>
           </motion.div>

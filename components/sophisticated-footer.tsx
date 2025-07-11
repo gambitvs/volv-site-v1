@@ -4,6 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight, Mail, Phone, MapPin, Twitter, Linkedin, Github, Facebook, Sparkles } from "lucide-react"
+import Image from "next/image"
 
 export function SophisticatedFooter() {
   const [email, setEmail] = useState("")
@@ -158,9 +159,9 @@ export function SophisticatedFooter() {
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.6 }}
           >
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-brand-accent to-brand-accent-light rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">V</span>
+            <div className="flex items-center space-x-3 mb-4">
+              <div className="w-8 h-8 relative">
+                <Image src="/volv-logo.png" alt="Volv Logo" width={32} height={32} className="object-contain" />
               </div>
               <span className="text-xl font-bold text-surface-light">Volv</span>
             </div>
