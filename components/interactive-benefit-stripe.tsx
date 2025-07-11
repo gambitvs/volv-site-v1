@@ -49,21 +49,23 @@ export function InteractiveBenefitStripe() {
 
   const testimonials = [
     {
-      quote: "We can trust the numbers again and that’s changed how we grow.",
-      author: "CEO",
-      role: "eCom Capital",
-      company: "",
+      quote:
+        "Volv transformed our data into a strategic asset. We can finally trust our numbers, and that's fundamentally changed how we approach growth.",
+      author: "Alex Johnson",
+      role: "Founder",
+      company: "eCom Capital",
       avatar: "/placeholder.svg?height=48&width=48",
     },
     {
       quote: "We used to be leaking deals left and right. Now we’ve got visibility, automation, and confidence.",
-      author: "Sasha Karabut",
-      role: "CEO",
+      author: "Andrew Sharp",
+      role: "COO",
       company: "Bright Vision Digital",
       avatar: "/placeholder.svg?height=48&width=48",
     },
     {
-      quote: "It wasn’t just about closing — it was about building a repeatable, high-performing sales process.",
+      quote:
+        "They worked with us for a little over two years selling our high ticket coaching program and generating over 5m in revenue - our clients loved him, too...super rare to see a sales organization prioritize growth AND personal connection.",
       author: "Ryan Serhant",
       role: "CEO",
       company: "Sell It",
