@@ -144,23 +144,16 @@ export function FinalCtaSection() {
                     required
                   />
                   <motion.button
-                    type="submit"
-                    disabled={isLoading}
-                    className="px-8 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 disabled:opacity-50 group"
-                    whileHover={{ scale: isLoading ? 1 : 1.02 }}
-                    whileTap={{ scale: isLoading ? 1 : 0.98 }}
+                    type="button"
+                    onClick={() => window.location.href = '/calculator'}
+                    className="px-8 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 group"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {isLoading ? (
-                      <div className="flex items-center">
-                        <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin mr-2" />
-                        Booking Demo...
-                      </div>
-                    ) : (
-                      <div className="flex items-center">
-                        Book Demo
-                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                      </div>
-                    )}
+                    <div className="flex items-center">
+                      Calculate Revenue
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                    </div>
                   </motion.button>
                 </motion.form>
               ) : (

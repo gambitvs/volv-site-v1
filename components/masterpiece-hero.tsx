@@ -108,11 +108,11 @@ export function MasterpieceHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              <MagneticButton variant="primary" size="lg" className="group text-base font-medium">
+              <MagneticButton variant="primary" size="lg" className="group text-base font-medium" onClick={() => window.location.href = '/calculator'}>
                 Schedule Demo
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
               </MagneticButton>
-              <MagneticButton variant="secondary" size="lg" className="group text-base font-medium">
+              <MagneticButton variant="secondary" size="lg" className="group text-base font-medium" onClick={() => window.location.href = '/calculator'}>
                 <Play className="w-4 h-4 mr-2" />
                 Watch Demo
               </MagneticButton>

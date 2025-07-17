@@ -105,7 +105,7 @@ export function SophisticatedNav() {
             <button className="text-surface-dark hover:text-brand-accent transition-colors duration-200 font-medium">
               Sign In
             </button>
-            <MagneticButton variant="primary" size="sm">
+            <MagneticButton variant="primary" size="sm" onClick={() => window.location.href = '/calculator'}>
               Get Started
             </MagneticButton>
           </div>
@@ -159,7 +159,7 @@ export function SophisticatedNav() {
                   <button className="block w-full text-left text-surface-dark hover:text-brand-accent transition-colors duration-200 font-medium py-2">
                     Sign In
                   </button>
-                  <MagneticButton variant="primary" size="sm" className="w-full">
+                  <MagneticButton variant="primary" size="sm" className="w-full" onClick={() => window.location.href = '/calculator'}>
                     Get Started
                   </MagneticButton>
                 </div>
