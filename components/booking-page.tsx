@@ -33,22 +33,22 @@ export function BookingPage() {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Sarah Chen",
-      company: "TechFlow Solutions",
-      result: "$487K recovered",
-      quote: "The strategy call revealed gaps we never knew existed. Within 3 months, we recovered almost half a million in lost revenue."
+      name: "Alex Johnson",
+      company: "Data Engineer Academy",
+      result: "$850K/month revenue",
+      quote: "We grew from $150K to $850K/month — and it wasn't magic, it was the systems Volv built."
     },
     {
-      name: "Michael Rodriguez",
-      company: "GrowthMax Inc",
-      result: "$320K recovered",
-      quote: "Clear, actionable insights. The 30-minute call turned into a complete transformation of our sales process."
+      name: "Chris Garzon",
+      company: "eCom Capital",
+      result: "250% increase in sales",
+      quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable."
     },
     {
-      name: "Jennifer Kim",
-      company: "ScaleUp Partners",
-      result: "$215K recovered",
-      quote: "They didn't just identify the problems - they gave us the exact roadmap to fix them. Results came fast."
+      name: "Dr. Jeremy Gartner",
+      company: "Career Propulsion",
+      result: "$230K/month growth",
+      quote: "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together."
     }
   ]
 

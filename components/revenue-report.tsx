@@ -46,19 +46,22 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
 
   const testimonials = [
     {
-      name: "Ryan",
-      company: "TechStart Inc",
-      quote: "Volv helped us identify $500K in lost revenue. Within 3 months, we recovered 80% of it."
+      name: "Alex Johnson",
+      company: "Data Engineer Academy",
+      result: "$850K/month revenue",
+      quote: "We grew from $150K to $850K/month — and it wasn't magic, it was the systems Volv built."
     },
     {
-      name: "Chris",
-      company: "SalesForce Pro",
-      quote: "The insights were eye-opening. We increased our conversion rate by 45% in just 8 weeks."
+      name: "Dr. Jeremy Gartner",
+      company: "Career Propulsion",
+      result: "$230K/month growth",
+      quote: "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together."
     },
     {
-      name: "Andrew",
-      company: "Growth Partners",
-      quote: "Game-changing analysis. We went from losing deals to closing 3x more revenue."
+      name: "Ryan Serhant",
+      company: "Sell It Like Serhant",
+      result: ">100% YoY growth",
+      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process."
     }
   ]
 
