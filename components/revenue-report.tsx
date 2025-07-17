@@ -46,10 +46,10 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
 
   const testimonials = [
     {
-      name: "Alex Johnson",
-      company: "Data Engineer Academy",
-      result: "$850K/month revenue",
-      quote: "We grew from $150K to $850K/month — and it wasn't magic, it was the systems Volv built."
+      name: "Chris Garzon",
+      company: "DE Academy",
+      result: "250% increase in sales",
+      quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable."
     },
     {
       name: "Dr. Jeremy Gartner",

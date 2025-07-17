@@ -11,29 +11,11 @@ export function TestimonialSection() {
 
   const testimonials = [
     {
-      id: 1,
-      quote: "We grew from $150K to $850K/month — and it wasn’t magic, it was the systems Volv built.",
-      author: "Alex Johnson",
-      role: "CEO",
-      company: "Data Engineer Academy",
-      industry: "EdTech",
-      avatar: "/placeholder.svg?height=80&width=80&text=AJ",
-      wistiaId: "2mzo3d4yjk",
-      wistiaAspect: "0.5625",
-      metrics: [
-        { label: "Deals from Follow-Up", value: "2X" },
-        { label: "Revenue Increase", value: "6X" },
-        { label: "Sales Team Growth", value: "300%" },
-      ],
-      rating: 5,
-      featured: true,
-    },
-    {
       id: 2,
-      quote: "Before Volv, data management was a mess. Now it’s clean, reliable, and actionable.",
+      quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable.",
       author: "Chris Garzon",
       role: "CEO",
-      company: "eCom Capital",
+      company: "DE Academy",
       industry: "E-commerce",
       avatar: "/placeholder.svg?height=80&width=80&text=CG",
       wistiaId: "qit8jpjtui",
@@ -49,7 +31,7 @@ export function TestimonialSection() {
     {
       id: 3,
       quote:
-        "We went from $70K to $230K/month — and it wasn’t just from one hire, it was because everything was finally working together.",
+        "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together.",
       author: "Dr. Jeremy Gartner",
       role: "CEO",
       company: "Career Propulsion",
@@ -67,7 +49,7 @@ export function TestimonialSection() {
     },
     {
       id: 4,
-      quote: "It wasn’t just about closing — it was about building a repeatable, high-performing sales process.",
+      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process.",
       author: "Ryan Serhant",
       role: "CEO",
       company: "Sell It Like Serhant",
@@ -298,52 +280,6 @@ export function TestimonialSection() {
             </div>
           </motion.div>
         </div>
-        <motion.div
-          className="grid md:grid-cols-3 gap-8 mt-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-        >
-          {testimonials
-            .filter((_, index) => index !== currentTestimonial)
-            .slice(0, 3)
-            .map((testimonial, index) => (
-              <motion.div
-                key={testimonial.id}
-                className="p-6 bg-surface-light/10 backdrop-blur-md rounded-2xl border border-surface-light/20 hover:bg-surface-light/15 transition-all duration-200 cursor-pointer"
-                onClick={() => {
-                  setCurrentTestimonial(testimonials.findIndex((t) => t.id === testimonial.id))
-                  setIsAutoPlaying(false)
-                }}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1 + index * 0.1, duration: 0.5 }}
-                whileHover={{ scale: 1.02, y: -5 }}
-              >
-                <div className="flex items-center space-x-1 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                <blockquote className="text-surface-light/90 text-sm mb-4 line-clamp-3">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="flex items-center space-x-3">
-                  <img
-                    src={testimonial.avatar || "/placeholder.svg"}
-                    alt={testimonial.author}
-                    className="w-10 h-10 rounded-full"
-                  />
-                  <div>
-                    <div className="text-sm font-medium text-surface-light">{testimonial.author}</div>
-                    <div className="text-xs text-surface-light/70">{testimonial.company}</div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-        </motion.div>
       </div>
     </section>
   )

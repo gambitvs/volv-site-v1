@@ -33,14 +33,8 @@ export function BookingPage() {
 
   const testimonials: Testimonial[] = [
     {
-      name: "Alex Johnson",
-      company: "Data Engineer Academy",
-      result: "$850K/month revenue",
-      quote: "We grew from $150K to $850K/month — and it wasn't magic, it was the systems Volv built."
-    },
-    {
       name: "Chris Garzon",
-      company: "eCom Capital",
+      company: "DE Academy",
       result: "250% increase in sales",
       quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable."
     },
@@ -49,6 +43,12 @@ export function BookingPage() {
       company: "Career Propulsion",
       result: "$230K/month growth",
       quote: "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together."
+    },
+    {
+      name: "Ryan Serhant",
+      company: "Sell It Like Serhant",
+      result: ">100% YoY growth",
+      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process."
     }
   ]
 

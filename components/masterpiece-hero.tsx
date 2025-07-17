@@ -128,13 +128,6 @@ export function MasterpieceHero() {
               transition={{ delay: 0.9, duration: 0.6 }}
             >
               <p className="text-sm text-surface-dark/60 mb-4">Trusted by 500+ growing businesses</p>
-              <div className="flex items-center justify-center lg:justify-start space-x-6 opacity-60">
-                {["Company A", "Company B", "Company C", "Company D"].map((company, index) => (
-                  <div key={company} className="text-xs font-medium text-surface-dark">
-                    {company}
-                  </div>
-                ))}
-              </div>
             </motion.div>
           </motion.div>
 
