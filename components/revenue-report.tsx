@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowLeft, Download, Share2, Calendar, TrendingUp, DollarSign, Target, PhoneCall, Users, Zap, CheckCircle, AlertCircle, Star, Shield, ExternalLink, ChevronDown, ChevronUp, BarChart3 } from "lucide-react"
 import { FormData, RevenueResults, formatCurrency, formatNumber } from "@/lib/revenue-calculator"
@@ -14,6 +15,7 @@ interface RevenueReportProps {
 }
 
 export function RevenueReport({ results, formData, onBack }: RevenueReportProps) {
+  const router = useRouter()
   const [currentSection, setCurrentSection] = useState(0)
   const [showFAQ, setShowFAQ] = useState(false)
   const [isExporting, setIsExporting] = useState(false)
@@ -530,7 +532,7 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-earth-200 mb-8">
               <button 
-                onClick={() => window.location.href = `/book-strategy-call?revenue=${results.final_lost_revenue}`}
+                onClick={() => router.push(`/book-strategy-call?revenue=${results.final_lost_revenue}`)}
                 className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white text-lg font-semibold rounded-xl hover:shadow-xl transition-all duration-200 group"
               >
                 <Calendar className="w-5 h-5 mr-3 inline-block" />

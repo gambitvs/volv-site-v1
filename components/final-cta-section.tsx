@@ -2,10 +2,12 @@
 
 import type React from "react"
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowRight, CheckCircle, Clock, Users, Zap, Shield, Star, AlertCircle } from "lucide-react"
 
 export function FinalCtaSection() {
+  const router = useRouter()
   const [email, setEmail] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
@@ -145,7 +147,7 @@ export function FinalCtaSection() {
                   />
                   <motion.button
                     type="button"
-                    onClick={() => window.location.href = '/calculator'}
+                    onClick={() => router.push('/calculator')}
                     className="px-8 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 group"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}

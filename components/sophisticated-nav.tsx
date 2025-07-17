@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X, ChevronDown } from "lucide-react"
 import { MagneticButton } from "./magnetic-button"
 import Image from "next/image"
 
 export function SophisticatedNav() {
+  const router = useRouter()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
@@ -105,7 +107,7 @@ export function SophisticatedNav() {
             <button className="text-surface-dark hover:text-brand-accent transition-colors duration-200 font-medium">
               Sign In
             </button>
-            <MagneticButton variant="primary" size="sm" onClick={() => window.location.href = '/calculator'}>
+            <MagneticButton variant="primary" size="sm" onClick={() => router.push('/calculator')}>
               Get Started
             </MagneticButton>
           </div>
@@ -159,7 +161,7 @@ export function SophisticatedNav() {
                   <button className="block w-full text-left text-surface-dark hover:text-brand-accent transition-colors duration-200 font-medium py-2">
                     Sign In
                   </button>
-                  <MagneticButton variant="primary" size="sm" className="w-full" onClick={() => window.location.href = '/calculator'}>
+                  <MagneticButton variant="primary" size="sm" className="w-full" onClick={() => router.push('/calculator')}>
                     Get Started
                   </MagneticButton>
                 </div>

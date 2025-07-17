@@ -1,11 +1,13 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { Play, ArrowRight, BarChart3, TrendingUp, Users, Zap } from "lucide-react"
 import { MagneticButton } from "./magnetic-button"
 
 export function MasterpieceHero() {
+  const router = useRouter()
   const [currentText, setCurrentText] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
@@ -108,11 +110,11 @@ export function MasterpieceHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              <MagneticButton variant="primary" size="lg" className="group text-base font-medium" onClick={() => window.location.href = '/calculator'}>
+              <MagneticButton variant="primary" size="lg" className="group text-base font-medium" onClick={() => router.push('/calculator')}>
                 Schedule Demo
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
               </MagneticButton>
-              <MagneticButton variant="secondary" size="lg" className="group text-base font-medium" onClick={() => window.location.href = '/calculator'}>
+              <MagneticButton variant="secondary" size="lg" className="group text-base font-medium" onClick={() => router.push('/calculator')}>
                 <Play className="w-4 h-4 mr-2" />
                 Watch Demo
               </MagneticButton>
