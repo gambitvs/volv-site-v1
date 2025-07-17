@@ -8,20 +8,6 @@ import { ArrowRight, CheckCircle, Clock, Users, Zap, Shield, Star, AlertCircle }
 
 export function FinalCtaSection() {
   const router = useRouter()
-  const [email, setEmail] = useState("")
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    setIsLoading(false)
-    setIsSubmitted(true)
-  }
 
   const benefits = [
     { icon: Clock, text: "Demo scheduled in 24 hours" },
@@ -120,7 +106,7 @@ export function FinalCtaSection() {
             ))}
           </motion.div>
 
-          {/* Demo Booking Form */}
+          {/* Demo Booking Button */}
           <motion.div
             className="max-w-2xl mx-auto mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -128,52 +114,18 @@ export function FinalCtaSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
           >
-            <AnimatePresence mode="wait">
-              {!isSubmitted ? (
-                <motion.form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col sm:flex-row gap-4 p-2 bg-white rounded-2xl shadow-xl border border-earth-200"
-                  initial={{ opacity: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your business email for demo"
-                    className="flex-1 px-6 py-4 text-lg bg-transparent border-none outline-none placeholder-surface-dark/50"
-                    required
-                  />
-                  <motion.button
-                    type="button"
-                    onClick={() => router.push('/calculator')}
-                    className="px-8 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 group"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <div className="flex items-center">
-                      Calculate Revenue
-                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-                    </div>
-                  </motion.button>
-                </motion.form>
-              ) : (
-                <motion.div
-                  className="p-8 bg-gradient-to-r from-green-50 to-green-100 rounded-2xl border border-green-200"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <CheckCircle className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold text-green-800 mb-2">Demo Booked Successfully!</h3>
-                  <p className="text-green-700">
-                    Check your email for confirmation. Our team will reach out within 24 hours to schedule your
-                    personalized demo!
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            <motion.button
+              type="button"
+              onClick={() => router.push('/calculator')}
+              className="w-full px-12 py-6 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white text-xl font-semibold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-200 group"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="flex items-center justify-center">
+                Calculate Revenue
+                <ArrowRight className="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform duration-200" />
+              </div>
+            </motion.button>
 
             {/* Benefits List */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">

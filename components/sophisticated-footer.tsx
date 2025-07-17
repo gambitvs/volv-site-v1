@@ -1,21 +1,10 @@
 "use client"
 
-import type React from "react"
-import { useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, Mail, Phone, MapPin, Twitter, Linkedin, Github, Facebook, Sparkles } from "lucide-react"
+import { Mail, Phone, MapPin, Twitter, Linkedin, Github, Facebook } from "lucide-react"
 import Image from "next/image"
 
 export function SophisticatedFooter() {
-  const [email, setEmail] = useState("")
-  const [isSubscribed, setIsSubscribed] = useState(false)
-
-  const handleNewsletterSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubscribed(true)
-    setEmail("")
-    setTimeout(() => setIsSubscribed(false), 3000)
-  }
 
   const footerSections = [
     {
@@ -95,59 +84,6 @@ export function SophisticatedFooter() {
       />
 
       <div className="container-custom relative z-10">
-        {/* Newsletter Section */}
-        <motion.div
-          className="py-16 border-b border-surface-light/20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-surface-light mb-4">
-                Stay Ahead with <span className="gradient-text-perfect">Smart Insights</span>
-              </h3>
-              <p className="text-surface-light/80 text-lg">
-                Get weekly tips, industry insights, and product updates delivered to your inbox.
-              </p>
-            </div>
-
-            <div>
-              {isSubscribed ? (
-                <motion.div
-                  className="flex items-center p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  Thanks for subscribing! Check your email.
-                </motion.div>
-              ) : (
-                <form onSubmit={handleNewsletterSubmit} className="flex gap-4">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email"
-                    className="flex-1 px-6 py-4 bg-surface-light/10 border border-surface-light/20 rounded-xl text-surface-light placeholder-surface-light/60 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent"
-                    required
-                  />
-                  <motion.button
-                    type="submit"
-                    className="px-8 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 group"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Subscribe
-                    <ArrowRight className="w-5 h-5 ml-2 inline group-hover:translate-x-1 transition-transform duration-200" />
-                  </motion.button>
-                </form>
-              )}
-            </div>
-          </div>
-        </motion.div>
 
         {/* Main Footer Content */}
         <div className="py-16 grid md:grid-cols-2 lg:grid-cols-6 gap-12">

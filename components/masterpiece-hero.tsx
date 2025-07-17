@@ -111,7 +111,7 @@ export function MasterpieceHero() {
               transition={{ delay: 0.7, duration: 0.6 }}
             >
               <MagneticButton variant="primary" size="lg" className="group text-base font-medium" onClick={() => router.push('/calculator')}>
-                Schedule Demo
+                See How Much Money You're Losing
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
               </MagneticButton>
               <MagneticButton variant="secondary" size="lg" className="group text-base font-medium" onClick={() => router.push('/calculator')}>

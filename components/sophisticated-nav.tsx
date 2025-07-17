@@ -21,20 +21,7 @@ export function SophisticatedNav() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navItems = [
-    { name: "Features", href: "#features" },
-    {
-      name: "Solutions",
-      href: "#solutions",
-      dropdown: [
-        { name: "Analytics", href: "#analytics" },
-        { name: "Reporting", href: "#reporting" },
-        { name: "Integration", href: "#integration" },
-      ],
-    },
-    { name: "Pricing", href: "#pricing" },
-    { name: "About", href: "#about" },
-  ]
+  const navItems = []
 
   return (
     <motion.nav
@@ -108,7 +95,7 @@ export function SophisticatedNav() {
               Sign In
             </button>
             <MagneticButton variant="primary" size="sm" onClick={() => router.push('/calculator')}>
-              Get Started
+              See How Much Money You're Losing
             </MagneticButton>
           </div>
 
@@ -162,7 +149,7 @@ export function SophisticatedNav() {
                     Sign In
                   </button>
                   <MagneticButton variant="primary" size="sm" className="w-full" onClick={() => router.push('/calculator')}>
-                    Get Started
+                    See How Much Money You're Losing
                   </MagneticButton>
                 </div>
               </div>
