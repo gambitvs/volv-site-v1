@@ -193,6 +193,19 @@ export function RevenueForm({ onSubmit, formData, setFormData, currentStep, setC
   const currentStepData = formSteps[currentStep]
   const isLastStep = currentStep === formSteps.length - 1
 
+  // Handle Enter key press
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        handleNext()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyPress)
+    return () => document.removeEventListener('keydown', handleKeyPress)
+  }, [currentStep, formData, isLastStep, onSubmit, setCurrentStep])
+
   const updateField = (name: keyof FormData, value: any) => {
     setFormData({ ...formData, [name]: value })
     
@@ -430,13 +443,18 @@ export function RevenueForm({ onSubmit, formData, setFormData, currentStep, setC
               Back
             </button>
 
-            <button
-              onClick={handleNext}
-              className="flex items-center px-8 py-3 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-xl font-medium hover:shadow-lg transition-all duration-200 group"
-            >
-              {isLastStep ? "Calculate Revenue" : "Next"}
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-            </button>
+            <div className="flex items-center space-x-4">
+              <div className="text-sm text-surface-dark/60 hidden sm:block">
+                Press <kbd className="px-2 py-1 bg-earth-100 text-surface-dark rounded border border-earth-300 font-mono text-xs">Enter</kbd> to continue
+              </div>
+              <button
+                onClick={handleNext}
+                className="flex items-center px-8 py-3 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white rounded-xl font-medium hover:shadow-lg transition-all duration-200 group"
+              >
+                {isLastStep ? "Calculate Revenue" : "Next"}
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+              </button>
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
