@@ -193,19 +193,6 @@ export function RevenueForm({ onSubmit, formData, setFormData, currentStep, setC
   const currentStepData = formSteps[currentStep]
   const isLastStep = currentStep === formSteps.length - 1
 
-  // Handle Enter key press
-  useEffect(() => {
-    const handleKeyPress = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
-        e.preventDefault()
-        handleNext()
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyPress)
-    return () => document.removeEventListener('keydown', handleKeyPress)
-  }, [currentStep, formData, isLastStep, onSubmit, setCurrentStep])
-
   const updateField = (name: keyof FormData, value: any) => {
     setFormData({ ...formData, [name]: value })
     
@@ -244,6 +231,19 @@ export function RevenueForm({ onSubmit, formData, setFormData, currentStep, setC
   const handleBack = () => {
     setCurrentStep(currentStep - 1)
   }
+
+  // Handle Enter key press
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        e.preventDefault()
+        handleNext()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyPress)
+    return () => document.removeEventListener('keydown', handleKeyPress)
+  }, [currentStep, formData, isLastStep, onSubmit, setCurrentStep])
 
   const renderField = (field: FormField) => {
     const value = formData[field.name]
