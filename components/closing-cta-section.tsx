@@ -26,8 +26,9 @@ const ClosingCtaSection: React.FC = () => {
             variant="secondary"
             size="lg"
             className="group bg-floral-white text-brand-accent hover:bg-floral-white/90 px-8 py-3 text-base font-semibold"
+            onClick={() => window.location.href = '/calculator'}
           >
-            Book Your Demo
+            See Demo
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </motion.div>

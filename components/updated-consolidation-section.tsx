@@ -97,8 +97,9 @@ export function UpdatedConsolidationSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-700 transition-colors duration-200"
+            onClick={() => window.location.href = '/calculator'}
           >
-            Start Your Free Trial
+            See Demo
           </motion.button>
         </motion.div>
       </div>

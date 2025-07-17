@@ -56,8 +56,9 @@ export function StickyNav() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              onClick={() => window.location.href = '/calculator'}
             >
-              Get Started
+              See Demo
             </motion.button>
           </div>
 
@@ -87,8 +88,8 @@ export function StickyNav() {
                     {item.label}
                   </a>
                 ))}
-                <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">
-                  Get Started
+                <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200" onClick={() => window.location.href = '/calculator'}>
+                  See Demo
                 </button>
               </div>
             </motion.div>

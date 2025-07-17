@@ -191,8 +191,9 @@ export function SophisticatedFeatureCards() {
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 group"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => window.location.href = '/calculator'}
           >
-            Start Your Free Trial
+            See Demo
           </motion.button>
         </motion.div>
       </div>

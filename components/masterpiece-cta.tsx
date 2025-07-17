@@ -103,8 +103,9 @@ export default function MasterpieceCTA() {
               className="bg-surface-dark text-surface-light px-8 py-4 rounded-2xl font-semibold text-lg hover:bg-surface-dark/90 transition-all duration-300 flex items-center gap-3 shadow-elegant"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => window.location.href = '/calculator'}
             >
-              Schedule Demo
+              See Demo
               <ArrowRight className="w-5 h-5" />
             </MagneticButton>
 
@@ -112,8 +113,9 @@ export default function MasterpieceCTA() {
               className="border-2 border-neutral-200 text-surface-dark px-8 py-4 rounded-2xl font-semibold text-lg hover:border-brand-accent hover:text-brand-accent transition-all duration-300"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              onClick={() => window.location.href = '/calculator'}
             >
-              Talk to Our Team
+              See Demo
             </MagneticButton>
           </motion.div>
 
