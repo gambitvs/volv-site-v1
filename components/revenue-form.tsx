@@ -166,12 +166,12 @@ const formSteps: FormStep[] = [
         label: "Follow-Up Intensity",
         type: "select",
         options: [
-          { value: "none", label: "No Follow-Up" },
-          { value: "minimal", label: "Minimal Follow-Up" },
-          { value: "medium", label: "Medium Follow-Up" },
-          { value: "high", label: "High Follow-Up" },
+          { value: "none", label: "No Follow-Up - No systematic outreach after initial contact" },
+          { value: "minimal", label: "Minimal Follow-Up - 1-2 touches, basic email/call attempts" },
+          { value: "medium", label: "Medium Follow-Up - 3-5 touches, multi-channel approach" },
+          { value: "high", label: "High Follow-Up - 6+ touches, persistent multi-channel cadence" },
         ],
-        tooltip: "How aggressively do you follow up with prospects?",
+        tooltip: "How aggressively do you follow up with prospects? Higher intensity = better recovery rates",
         required: true,
       },
       {

@@ -8,43 +8,10 @@ export function SophisticatedFooter() {
 
   const footerSections = [
     {
-      title: "Product",
+      title: "Tools",
       links: [
-        { name: "Features", href: "#features" },
-        { name: "Integrations", href: "#integrations" },
-        { name: "Pricing", href: "#pricing" },
-        { name: "API", href: "#api" },
-        { name: "Security", href: "#security" },
-      ],
-    },
-    {
-      title: "Company",
-      links: [
-        { name: "About", href: "#about" },
-        { name: "Careers", href: "#careers" },
-        { name: "Press", href: "#press" },
-        { name: "Partners", href: "#partners" },
-        { name: "Contact", href: "#contact" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { name: "Documentation", href: "#docs" },
-        { name: "Help Center", href: "#help" },
-        { name: "Blog", href: "#blog" },
-        { name: "Webinars", href: "#webinars" },
-        { name: "Case Studies", href: "#cases" },
-      ],
-    },
-    {
-      title: "Legal",
-      links: [
-        { name: "Privacy Policy", href: "#privacy" },
-        { name: "Terms of Service", href: "#terms" },
-        { name: "Cookie Policy", href: "#cookies" },
-        { name: "GDPR", href: "#gdpr" },
-        { name: "Compliance", href: "#compliance" },
+        { name: "Revenue Calculator", href: "/calculator" },
+        { name: "Book Strategy Call", href: "/book-strategy-call" },
       ],
     },
   ]
@@ -57,8 +24,8 @@ export function SophisticatedFooter() {
   ]
 
   const contactInfo = [
-    { icon: Mail, text: "hello@volv.ai", href: "mailto:hello@volv.ai" },
-    { icon: Phone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
+    { icon: Mail, text: "support@volvnow.com", href: "mailto:support@volvnow.com" },
+    { icon: Phone, text: "+1 (720) 806-6865", href: "tel:+17208066865" },
     { icon: MapPin, text: "San Francisco, CA", href: "#location" },
   ]
 

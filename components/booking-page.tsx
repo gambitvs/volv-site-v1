@@ -430,7 +430,7 @@ export function BookingPage() {
                       Prefer to Talk First?
                     </h3>
                     <p className="text-surface-dark/70">
-                      Call us directly at <a href="tel:+1-555-123-4567" className="text-brand-accent font-medium">+1 (555) 123-4567</a>
+                      Call us directly at <a href="tel:+17208066865" className="text-brand-accent font-medium">+1 (720) 806-6865</a>
                     </p>
                   </div>
                 </div>

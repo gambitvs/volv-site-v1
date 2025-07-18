@@ -220,22 +220,6 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
               >
                 💰
               </motion.div>
-              <motion.div
-                className="absolute -top-4 -right-4 text-2xl"
-                initial={{ scale: 0, rotate: -45 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ delay: 1, duration: 0.6 }}
-              >
-                ✨
-              </motion.div>
-              <motion.div
-                className="absolute -bottom-4 -left-4 text-2xl"
-                initial={{ scale: 0, rotate: 45 }}
-                animate={{ scale: 1, rotate: 0 }}
-                transition={{ delay: 1.2, duration: 0.6 }}
-              >
-                💎
-              </motion.div>
             </div>
 
             {/* Revenue Potential Bar */}
