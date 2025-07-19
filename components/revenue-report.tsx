@@ -19,6 +19,15 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
   const [currentSection, setCurrentSection] = useState(0)
   const [showFAQ, setShowFAQ] = useState(false)
   const [isExporting, setIsExporting] = useState(false)
+  
+  // Debug logging
+  console.log('Revenue Report Results:', {
+    contract_value: results.final_lost_revenue,
+    cash_extraction: results.final_lost_revenue_average_order_value,
+    campaign_a: results.campaign_a_revenue,
+    campaign_b: results.campaign_b_revenue,
+    campaign_c: results.campaign_c_revenue
+  })
 
   const sections = [
     { id: "discovery", title: "Discovery" },
