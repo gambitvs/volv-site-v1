@@ -103,10 +103,11 @@ function getPerformanceCategory(value: number, type: keyof typeof PERFORMANCE_CA
 export function calculateRevenue(data: FormData): RevenueResults {
   // PDF-based calculation methodology
   
-  // Step 1: Resistance percentages are FIXED (not modified by follow-up intensity)
-  const no_show_resistance_pct = BENCHMARKS.base_no_show_resistance // 0.25
-  const new_opt_in_resistance_pct = BENCHMARKS.base_new_opt_in_resistance // 0.2
-  const pipeline_resistance_pct = BENCHMARKS.base_pipeline_resistance // 0.1
+  // Step 1: Resistance percentages adjusted by follow-up intensity (per PDF)
+  const follow_up_adjustment = BENCHMARKS.follow_up_adjustments[data.follow_up_intensity]
+  const no_show_resistance_pct = BENCHMARKS.base_no_show_resistance + follow_up_adjustment
+  const new_opt_in_resistance_pct = BENCHMARKS.base_new_opt_in_resistance + follow_up_adjustment
+  const pipeline_resistance_pct = BENCHMARKS.base_pipeline_resistance + follow_up_adjustment
   
   // Step 2: Basic monthly calculations
   const approx_new_leads_per_month = data.daily_leads * 30
