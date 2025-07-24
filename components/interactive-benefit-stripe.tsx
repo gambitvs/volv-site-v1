@@ -51,25 +51,24 @@ export function InteractiveBenefitStripe() {
     {
       quote:
         "Volv transformed our data into a strategic asset. We can finally trust our numbers, and that's fundamentally changed how we approach growth.",
-      author: "Alex Johnson",
-      role: "Founder",
+      author: "Sasha Karabut",
+      role: "CEO",
       company: "eCom Capital",
-      avatar: "/placeholder.svg?height=48&width=48",
+      avatar: "/avatars/sasha-karabut.jpg",
     },
     {
-      quote: "We used to be leaking deals left and right. Now we’ve got visibility, automation, and confidence.",
+      quote: "We used to be leaking deals left and right. Now we've got visibility, automation, and confidence.",
       author: "Andrew Sharp",
       role: "COO",
       company: "Bright Vision Digital",
-      avatar: "/placeholder.svg?height=48&width=48",
+      avatar: "/avatars/andrew-sharp.jpg",
     },
     {
-      quote:
-        "They worked with us for a little over two years selling our high ticket coaching program and generating over 5m in revenue - our clients loved him, too...super rare to see a sales organization prioritize growth AND personal connection.",
+      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process.",
       author: "Ryan Serhant",
       role: "CEO",
-      company: "Sell It",
-      avatar: "/placeholder.svg?height=48&width=48",
+      company: "Sell It Like Serhant",
+      avatar: "/avatars/ryan-serhant.jpg",
     },
   ]
 

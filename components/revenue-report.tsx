@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowLeft, Download, Share2, Calendar, TrendingUp, DollarSign, Target, PhoneCall, Users, Zap, CheckCircle, AlertCircle, Star, Shield, ExternalLink, ChevronDown, ChevronUp, BarChart3 } from "lucide-react"
+import { ArrowLeft, Download, Share2, Calendar, TrendingUp, DollarSign, Target, CheckCircle, AlertCircle, Star, Shield, ExternalLink, ChevronDown, ChevronUp, BarChart3, Users, Zap } from "lucide-react"
 import { FormData, RevenueResults, formatCurrency, formatNumber } from "@/lib/revenue-calculator"
 import jsPDF from "jspdf"
 import html2canvas from "html2canvas"
@@ -23,10 +23,7 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
   // Debug logging
   console.log('Revenue Report Results:', {
     contract_value: results.final_lost_revenue,
-    cash_extraction: results.final_lost_revenue_average_order_value,
-    campaign_a: results.campaign_a_revenue,
-    campaign_b: results.campaign_b_revenue,
-    campaign_c: results.campaign_c_revenue
+    cash_extraction: results.final_lost_revenue_average_order_value
   })
 
   const sections = [
@@ -58,19 +55,22 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
       name: "Chris Garzon",
       company: "DE Academy",
       result: "250% increase in sales",
-      quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable."
+      quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable.",
+      avatar: "/avatars/chris-garzon.jpg"
     },
     {
       name: "Dr. Jeremy Gartner",
       company: "Career Propulsion",
       result: "$230K/month growth",
-      quote: "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together."
+      quote: "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together.",
+      avatar: "/avatars/jeremy-gartner.jpg"
     },
     {
       name: "Ryan Serhant",
       company: "Sell It Like Serhant",
       result: ">100% YoY growth",
-      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process."
+      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process.",
+      avatar: "/avatars/ryan-serhant.jpg"
     }
   ]
 
@@ -303,52 +303,6 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
               </div>
             </div>
 
-            {/* Campaign Breakdown */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-earth-200">
-              <h3 className="text-2xl font-bold text-surface-dark text-center mb-8">
-                Revenue Breakdown by Campaign
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <PhoneCall className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-surface-dark mb-2">No-Shows Revival</h4>
-                  <div className="text-xl font-bold text-surface-dark">
-                    {formatCurrency(results.campaign_a_revenue)}
-                  </div>
-                  <p className="text-sm text-surface-dark/60 mt-2">
-                    Revenue from re-engaging no-shows
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-surface-dark mb-2">New Opt-Ins</h4>
-                  <div className="text-xl font-bold text-surface-dark">
-                    {formatCurrency(results.campaign_b_revenue)}
-                  </div>
-                  <p className="text-sm text-surface-dark/60 mt-2">
-                    Revenue from unbooked qualified leads
-                  </p>
-                </div>
-
-                <div className="text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <Zap className="w-6 h-6 text-white" />
-                  </div>
-                  <h4 className="font-semibold text-surface-dark mb-2">Dormant Pipeline</h4>
-                  <div className="text-xl font-bold text-surface-dark">
-                    {formatCurrency(results.campaign_c_revenue)}
-                  </div>
-                  <p className="text-sm text-surface-dark/60 mt-2">
-                    Revenue from dormant CRM leads
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </motion.section>
 
@@ -481,11 +435,19 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                 >
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">
-                        {testimonial.name[0]}
-                      </span>
-                    </div>
+                    {testimonial.avatar ? (
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover border-2 border-brand-accent"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold">
+                          {testimonial.name[0]}
+                        </span>
+                      </div>
+                    )}
                     <div className="ml-4">
                       <div className="font-semibold text-surface-dark">
                         {testimonial.name}

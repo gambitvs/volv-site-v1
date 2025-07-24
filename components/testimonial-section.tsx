@@ -17,7 +17,7 @@ export function TestimonialSection() {
       role: "CEO",
       company: "DE Academy",
       industry: "E-commerce",
-      avatar: "/placeholder.svg?height=80&width=80&text=CG",
+      avatar: "/avatars/chris-garzon.jpg",
       wistiaId: "qit8jpjtui",
       wistiaAspect: "0.5625",
       metrics: [
@@ -36,7 +36,7 @@ export function TestimonialSection() {
       role: "CEO",
       company: "Career Propulsion",
       industry: "Career Coaching",
-      avatar: "/placeholder.svg?height=80&width=80&text=JG",
+      avatar: "/avatars/jeremy-gartner.jpg",
       wistiaId: "5twmbbpy3y",
       wistiaAspect: "1.7777777777777777",
       metrics: [
@@ -54,7 +54,7 @@ export function TestimonialSection() {
       role: "CEO",
       company: "Sell It Like Serhant",
       industry: "Real Estate",
-      avatar: "/placeholder.svg?height=80&width=80&text=RS",
+      avatar: "/avatars/ryan-serhant.jpg",
       wistiaId: "u618g0ijae",
       wistiaAspect: "0.5625",
       metrics: [

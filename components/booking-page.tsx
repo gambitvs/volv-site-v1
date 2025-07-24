@@ -17,6 +17,7 @@ interface Testimonial {
   company: string
   result: string
   quote: string
+  avatar?: string
 }
 
 export function BookingPage() {
@@ -36,19 +37,22 @@ export function BookingPage() {
       name: "Chris Garzon",
       company: "DE Academy",
       result: "250% increase in sales",
-      quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable."
+      quote: "Before Volv, data management was a mess. Now it's clean, reliable, and actionable.",
+      avatar: "/avatars/chris-garzon.jpg"
     },
     {
       name: "Dr. Jeremy Gartner",
       company: "Career Propulsion",
       result: "$230K/month growth",
-      quote: "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together."
+      quote: "We went from $70K to $230K/month — and it wasn't just from one hire, it was because everything was finally working together.",
+      avatar: "/avatars/jeremy-gartner.jpg"
     },
     {
       name: "Ryan Serhant",
       company: "Sell It Like Serhant",
       result: ">100% YoY growth",
-      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process."
+      quote: "It wasn't just about closing — it was about building a repeatable, high-performing sales process.",
+      avatar: "/avatars/ryan-serhant.jpg"
     }
   ]
 
@@ -305,11 +309,19 @@ export function BookingPage() {
                   className="bg-white rounded-2xl p-6 shadow-lg border border-earth-200"
                 >
                   <div className="flex items-center mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold">
-                        {testimonial.name[0]}
-                      </span>
-                    </div>
+                    {testimonial.avatar ? (
+                      <img
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        className="w-12 h-12 rounded-full object-cover border-2 border-brand-accent"
+                      />
+                    ) : (
+                      <div className="w-12 h-12 bg-gradient-to-r from-brand-accent to-brand-accent-light rounded-full flex items-center justify-center">
+                        <span className="text-white font-bold">
+                          {testimonial.name[0]}
+                        </span>
+                      </div>
+                    )}
                     <div className="ml-4">
                       <div className="font-semibold text-surface-dark">
                         {testimonial.name}
