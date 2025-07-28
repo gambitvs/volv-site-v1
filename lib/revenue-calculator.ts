@@ -106,7 +106,8 @@ export function calculateRevenue(data: FormData): RevenueResults {
   // Step 1: Resistance percentages adjusted by follow-up intensity (per PDF)
   const follow_up_adjustment = BENCHMARKS.follow_up_adjustments[data.follow_up_intensity]
   const no_show_resistance_pct = BENCHMARKS.base_no_show_resistance + follow_up_adjustment
-  const new_opt_in_resistance_pct = BENCHMARKS.base_new_opt_in_resistance + follow_up_adjustment
+  // NOTE: new_opt_in_resistance is NOT modified by follow-up intensity per PDF
+  const new_opt_in_resistance_pct = BENCHMARKS.base_new_opt_in_resistance
   const pipeline_resistance_pct = BENCHMARKS.base_pipeline_resistance + follow_up_adjustment
   
   // Step 2: Basic monthly calculations
@@ -184,8 +185,7 @@ export function calculateRevenue(data: FormData): RevenueResults {
       C: campaign_c_revenue.toFixed(2) 
     })
     console.log('Total (Contract Value):', final_lost_revenue.toFixed(2))
-    console.log('Expected: 1,396,148.91')
-    console.log('Your result: 1,792,125 (this suggests old code is running)')
+    console.log('Expected: 1,501,198.95')
   }
   
   // Calculate total AOV-based revenue (cash extraction)
@@ -201,7 +201,7 @@ export function calculateRevenue(data: FormData): RevenueResults {
         C: campaign_c_revenue_aov.toFixed(2)
       },
       cash_extraction: final_lost_revenue_average_order_value.toFixed(2),
-      expected_cash: '698,074.45'
+      expected_cash: '750,599.47'
     })
   }
 
