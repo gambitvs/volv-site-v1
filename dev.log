@@ -1,0 +1,24 @@
+
+> my-v0-project@0.1.0 dev
+> next dev
+
+  ▲ Next.js 14.2.16
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 888ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.4s (1417 modules)
+ GET / 200 in 2543ms
+ ✓ Compiled in 199ms (707 modules)
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1058ms (1397 modules)
+ GET /favicon.svg 404 in 1100ms
+ GET /apple-touch-icon.png 404 in 14ms
+ ○ Compiling /calculator ...
+ ✓ Compiled /calculator in 812ms (1801 modules)
+ ○ Compiling /api/submit-lead ...
+ ✓ Compiled /api/submit-lead in 582ms (936 modules)
+Zapier webhook success: {"attempt":"019851ae-6bcc-d1af-e35f-98cc5ad0a110","id":"019851ae-6bcc-d1af-e35f-98cc5ad0a110","request_id":"019851ae-6bcc-d1af-e35f-98cc5ad0a110","status":"success"}
+
+ POST /api/submit-lead 200 in 764ms

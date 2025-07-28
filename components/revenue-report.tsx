@@ -5,16 +5,18 @@ import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ArrowLeft, Download, Share2, Calendar, TrendingUp, DollarSign, Target, CheckCircle, AlertCircle, Star, Shield, ExternalLink, ChevronDown, ChevronUp, BarChart3, Users, Zap } from "lucide-react"
 import { FormData, RevenueResults, formatCurrency, formatNumber } from "@/lib/revenue-calculator"
+import { EmailData } from "./email-capture"
 import jsPDF from "jspdf"
 import html2canvas from "html2canvas"
 
 interface RevenueReportProps {
   results: RevenueResults
   formData: FormData
+  emailData: EmailData | null
   onBack: () => void
 }
 
-export function RevenueReport({ results, formData, onBack }: RevenueReportProps) {
+export function RevenueReport({ results, formData, emailData, onBack }: RevenueReportProps) {
   const router = useRouter()
   const [currentSection, setCurrentSection] = useState(0)
   const [showFAQ, setShowFAQ] = useState(false)
@@ -23,8 +25,12 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
   // Debug logging
   console.log('Revenue Report Results:', {
     contract_value: results.final_lost_revenue,
-    cash_extraction: results.final_lost_revenue_average_order_value
+    cash_extraction: results.final_lost_revenue_average_order_value,
+    email_data: emailData
   })
+  
+  // Get first name from email data for personalization
+  const firstName = emailData?.name ? emailData.name.split(' ')[0] : 'there'
 
   const sections = [
     { id: "discovery", title: "Discovery" },
@@ -205,7 +211,7 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
               Lost Revenue Report
             </h1>
             <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#FFD700' }}>
-              You Just Uncovered Hidden Gold in Your CRM!
+              {firstName === 'there' ? 'You' : firstName}, You Just Uncovered Hidden Gold in Your CRM!
             </h2>
             <p className="text-xl md:text-2xl text-surface-dark mb-8 leading-relaxed">
               Based on your answers, your CRM is likely sitting on{' '}
@@ -490,7 +496,15 @@ export function RevenueReport({ results, formData, onBack }: RevenueReportProps)
 
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-earth-200 mb-8">
               <button 
-                onClick={() => router.push(`/book-strategy-call?revenue=${results.final_lost_revenue}`)}
+                onClick={() => {
+                  const params = new URLSearchParams({
+                    revenue: results.final_lost_revenue.toString(),
+                    ...(emailData?.name && { name: emailData.name }),
+                    ...(emailData?.email && { email: emailData.email }),
+                    ...(emailData?.company && { company: emailData.company })
+                  })
+                  router.push(`/book-strategy-call?${params.toString()}`)
+                }}
                 className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-brand-accent to-brand-accent-light text-white text-lg font-semibold rounded-xl hover:shadow-xl transition-all duration-200 group"
               >
                 <Calendar className="w-5 h-5 mr-3 inline-block" />

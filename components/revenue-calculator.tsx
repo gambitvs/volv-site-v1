@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ArrowLeft, ArrowRight, CheckCircle, Download, Share2, Calendar, DollarSign, Users, TrendingUp, PhoneCall, Target, Zap } from "lucide-react"
 import { RevenueForm } from "./revenue-form"
 import { RevenueReport } from "./revenue-report"
+import { EmailCapture, type EmailData } from "./email-capture"
 import { calculateRevenue, type FormData, type RevenueResults } from "@/lib/revenue-calculator"
 
 export function RevenueCalculator() {
@@ -23,6 +24,9 @@ export function RevenueCalculator() {
   })
   const [results, setResults] = useState<RevenueResults | null>(null)
   const [isCalculating, setIsCalculating] = useState(false)
+  const [showEmailCapture, setShowEmailCapture] = useState(false)
+  const [isSubmittingEmail, setIsSubmittingEmail] = useState(false)
+  const [emailData, setEmailData] = useState<EmailData | null>(null)
 
   const handleFormSubmit = async (data: FormData) => {
     setIsCalculating(true)
@@ -33,11 +37,69 @@ export function RevenueCalculator() {
     const calculatedResults = calculateRevenue(data)
     setResults(calculatedResults)
     setIsCalculating(false)
+    
+    // Show email capture after calculation
+    setShowEmailCapture(true)
   }
 
+  const handleEmailSubmit = async (emailFormData: EmailData) => {
+    setIsSubmittingEmail(true)
+    
+    try {
+      // Prepare data for API
+      const submitData = {
+        // Email data
+        name: emailFormData.name,
+        email: emailFormData.email,
+        company: emailFormData.company,
+        
+        // Calculator results
+        contractValue: results?.final_lost_revenue,
+        cashExtraction: results?.final_lost_revenue_average_order_value,
+        dealSize: formData.average_deal_size,
+        dailyLeads: formData.daily_leads,
+        showUpRate: formData.show_up_rate,
+        conversionRate: formData.conversion_rate,
+        followUpIntensity: formData.follow_up_intensity,
+        totalCrmLeads: formData.total_crm_leads,
+        dailyBookedCalls: formData.daily_booked_calls,
+        unqualifiedFraction: formData.unqualified_fraction,
+        averageOrderValue: formData.average_order_value,
+      }
+      
+      // Submit to API
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submitData),
+      })
+      
+      if (response.ok) {
+        setEmailData(emailFormData)
+        setShowEmailCapture(false)
+      } else {
+        console.error('Failed to submit lead data')
+        // Still proceed to show results
+        setEmailData(emailFormData)
+        setShowEmailCapture(false)
+      }
+    } catch (error) {
+      console.error('Error submitting lead:', error)
+      // Still proceed to show results
+      setEmailData(emailFormData)
+      setShowEmailCapture(false)
+    } finally {
+      setIsSubmittingEmail(false)
+    }
+  }
+  
   const handleBack = () => {
     setResults(null)
     setCurrentStep(0)
+    setShowEmailCapture(false)
+    setEmailData(null)
   }
 
   if (isCalculating) {
@@ -80,10 +142,28 @@ export function RevenueCalculator() {
     )
   }
 
-  if (results) {
+  // Show email capture after calculation but before results
+  if (results && showEmailCapture) {
+    return (
+      <EmailCapture
+        calculatorData={formData}
+        calculatorResults={results}
+        onSubmit={handleEmailSubmit}
+        isSubmitting={isSubmittingEmail}
+      />
+    )
+  }
+  
+  // Show results after email is captured
+  if (results && !showEmailCapture) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-surface-light via-earth-50 to-earth-100">
-        <RevenueReport results={results} formData={formData} onBack={handleBack} />
+        <RevenueReport 
+          results={results} 
+          formData={formData} 
+          emailData={emailData}
+          onBack={handleBack} 
+        />
       </div>
     )
   }
