@@ -207,7 +207,7 @@ export function BookingPage() {
                   </div>
 
                   {/* Calendly inline widget */}
-                  <div className="calendly-inline-widget" data-url="https://calendly.com/trading101/weekly-touch-point?primary_color=ff8000" style={{minWidth: '320px', height: '700px'}}></div>
+                  <div className="calendly-inline-widget" data-url="https://calendly.com/volvnow/c2-lost-revenue-call" style={{minWidth: '320px', height: '700px'}}></div>
 
                   {/* Call Benefits */}
                   <div className="mt-6 pt-6 border-t border-earth-200">

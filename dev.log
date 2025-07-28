@@ -22,3 +22,13 @@
 Zapier webhook success: {"attempt":"019851ae-6bcc-d1af-e35f-98cc5ad0a110","id":"019851ae-6bcc-d1af-e35f-98cc5ad0a110","request_id":"019851ae-6bcc-d1af-e35f-98cc5ad0a110","status":"success"}
 
  POST /api/submit-lead 200 in 764ms
+ GET / 200 in 101ms
+ GET /favicon.svg 404 in 13ms
+ GET /apple-touch-icon.png 404 in 20ms
+Zapier webhook success: {"attempt":"019851dd-10a0-8715-19c9-be51b45a8c3d","id":"019851dd-10a0-8715-19c9-be51b45a8c3d","request_id":"019851dd-10a0-8715-19c9-be51b45a8c3d","status":"success"}
+
+ POST /api/submit-lead 200 in 157ms
+ GET / 200 in 37ms
+ GET /favicon.svg 404 in 11ms
+ GET /apple-touch-icon.png 404 in 19ms
+ ✓ Compiled in 175ms (907 modules)
