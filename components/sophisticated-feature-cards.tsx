@@ -32,7 +32,7 @@ export function SophisticatedFeatureCards() {
       icon: Shield,
       title: "Enterprise Security",
       description: "Bank-level encryption and compliance standards protect your sensitive business data at every step.",
-      benefits: ["256-bit Encryption", "SOC 2 Compliant", "GDPR Ready"],
+      benefits: ["256-bit Encryption", "GDPR Ready"],
       color: "from-green-500 to-green-600",
       bgColor: "bg-green-50",
       delay: 0.3,
